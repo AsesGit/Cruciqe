@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Backend for automatic student ID card generation and management system",
   "dependencies": {
     "@supabase/supabase-js": "^2.56.0",
     "cors": "^2.8.5",
