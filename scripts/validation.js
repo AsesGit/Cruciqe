@@ -26,8 +26,24 @@ form.addEventListener('submit', (e) => {
   if(errors.length > 0){
     e.preventDefault()
     displayError.innerText = errors.join('. ')
+  } else {
+    if(department){
+      Swal.fire({
+        title: "Success!",
+        text: "You successfull generated a student ID!",
+        icon: "success"
+      });
+    } else if(password){
+      Swal.fire({
+        title: "Welcome!",
+        text: "Login successful",
+        icon: "success"
+      });
+    }
   }
-})
+
+    //submitData()
+  })
 
 function getIdErrors(student, reg, dept, picture) {
   
