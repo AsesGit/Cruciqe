@@ -14,20 +14,50 @@ const dragAndDrop = document.getElementById('drag-and-drop')
 
 const changePhoto = document.getElementById('change-photo')
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   let errors = [];
+  let studentData = {};
   
   if(department){
     errors = getIdErrors(studentName.value, regNumber.value, department.value, studentPhoto.value)
+    studentData = {
+      name: studentName.value,
+      id: regNumber.value,
+      dept: department.value,
+      pic: studentPhoto.value
+    }
   } else if (password) {
     error = getLoginError(username.value, password.value)
+    studentData = {
+      name: username.value,
+      id: password.value
+    }
   }
   
   if(errors.length > 0){
     e.preventDefault()
     displayError.innerText = errors.join('. ')
   } else {
-    if(department){
+
+    try {
+        // Send POST request with Axios
+      const response = await axios.post(
+        'http://localhost:3000/api/register-student',
+        formData, {
+        headers: {
+          'Content-Type': 'application/json' // Ensure JSON format
+        }
+      });
+
+      console.log('Response from backend:', response.data);
+      responseDiv.innerHTML = `<p>${response.data.message}</p><p>Echoed data: ${JSON.stringify(response.data.data)}</p>`;
+    }catch(errors){
+      console.log("failed");
+      console.error('Error sending data:', error);
+      responseDiv.innerHTML = `<p>Error: ${error.response?.data?.message || error.message}</p>`;
+    }
+
+    /*if(department){
       Swal.fire({
         title: "Success!",
         text: "You successfull generated a student ID!",
@@ -39,11 +69,11 @@ form.addEventListener('submit', (e) => {
         text: "Login successful",
         icon: "success"
       });
-    }
+    }*/
   }
 
     //submitData()
-  })
+})
 
 function getIdErrors(student, reg, dept, picture) {
   
