@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -14,8 +14,9 @@
  <!--axios-->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+  <script src="scripts/validation.js"></script>
 
-  <script type="" src="scripts/validation.js" defer></script>
+  <script type="module" src="scripts/admin/registerStudent.js"></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300..700&display=swap');
@@ -38,7 +39,7 @@
       </li>
     </ol>
   </nav>
-  
+
   <div class="flex flex-col items-center justify-center  px-6 py-8 mx-auto lg:py-0">
     <a href="index.html" class="flex flex-col items-center mb-6 text-5xl font-semibold text-gray-900 dark:text-white">
       Cruciqe
@@ -82,7 +83,7 @@
             <label for="level" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Level</label>
             <select id="level" name="level" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="eg. 200">
               <option value="100">100</option>
-              <option value="200" selected>200</option>
+              <option value="200">200</option>
               <option value="300">300</option>
               <option value="400">400</option>
               <option value="500">500</option>

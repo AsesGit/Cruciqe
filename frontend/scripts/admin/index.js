@@ -1,3 +1,1 @@
-import {loadStudentList} from './getStudents.js';
-
-console.log(loadStudentList())
+console.log("webpack")
